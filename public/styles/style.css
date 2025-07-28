@@ -1,0 +1,121 @@
+
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #0f4a85;
+  color: #212529;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Navbar */
+
+.navbar {
+  background-color: #000 !important;
+  border-bottom: none;
+  position: relative;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background: url("https://via.placeholder.com/1600x900") center center/cover no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff; /* White text for dark overlay */
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* darker overlay */
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding-top: 60px;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #fff; /* bright text */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* add depth */
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #eee; /* readable light grey */
+}
+
+/* Product Cards */
+.product-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #722525;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+  height: 280px;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.btn-dark {
+  background-color: #111;
+  border: none;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-dark:hover {
+  background-color: #000;
+}
+
+/* Footer */
+footer {
+  background-color: #000;
+  color: #851010;
+  font-size: 0.9rem;
+}
+.lead {
+  color: #c20b0b;
+  background-color: #000;
+}
+.display-2 fw-bold {
+  color: #c20b0b;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+.btn:hover {
+  transform: scale(1.02);
+  background-color: var(--accent-color);
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}

@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+
+<h2 class="text-center mb-4">Explore Our Shoe Collection</h2>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <% const shoes = [
+    { name: "AirMax Blaze", price: "Rs. 5,200", img: "https://via.placeholder.com/300x200?text=AirMax+Blaze" },
+    { name: "Jordan Retro", price: "Rs. 9,999", img: "https://via.placeholder.com/300x200?text=Jordan+Retro" },
+    { name: "Nike Zoom", price: "Rs. 7,400", img: "https://via.placeholder.com/300x200?text=Nike+Zoom" },
+    { name: "Puma Flex", price: "Rs. 4,800", img: "https://via.placeholder.com/300x200?text=Puma+Flex" },
+    { name: "Adidas UltraBoost", price: "Rs. 10,500", img: "https://via.placeholder.com/300x200?text=UltraBoost" },
+    { name: "Reebok Edge", price: "Rs. 3,999", img: "https://via.placeholder.com/300x200?text=Reebok+Edge" }
+  ]; %>
+
+  <% shoes.forEach(shoe => { %>
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="<%= shoe.img %>" class="card-img-top" alt="<%= shoe.name %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= shoe.name %></h5>
+          <p class="card-text"><strong><%= shoe.price %></strong></p>
+          <form action="/add-to-cart" method="POST">
+            <input type="hidden" name="name" value="<%= shoe.name %>">
+            <input type="hidden" name="price" value="<%= shoe.price %>">
+            <button type="submit" class="btn btn-success w-100">Add to Cart</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  <% }); %>
+</div>
+
+<%- include('partials/footer') %>

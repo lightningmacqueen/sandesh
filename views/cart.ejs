@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+
+<h2 class="text-center mb-4">Your Shopping Cart 🛒</h2>
+
+<% const cartItems = [
+  { name: "Nike Zoom", price: 7400, quantity: 1 },
+  { name: "Jordan Retro", price: 9999, quantity: 2 }
+]; %>
+
+<% let total = 0; %>
+
+<table class="table table-bordered table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th>Shoe Name</th>
+      <th>Price (Rs.)</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% cartItems.forEach(item => {
+      const subtotal = item.price * item.quantity;
+      total += subtotal;
+    %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.price %></td>
+        <td>
+          <form action="/update-cart" method="POST" class="d-flex">
+            <input type="hidden" name="name" value="<%= item.name %>">
+            <input type="number" name="quantity" value="<%= item.quantity %>" min="1" class="form-control form-control-sm w-50 me-2">
+            <button type="submit" class="btn btn-sm btn-primary">Update</button>
+          </form>
+        </td>
+        <td>Rs. <%= subtotal %></td>
+        <td>
+          <form action="/remove-from-cart" method="POST">
+            <input type="hidden" name="name" value="<%= item.name %>">
+            <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+          </form>
+        </td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<div class="text-end">
+  <h4>Total: Rs. <%= total %></h4>
+  <a href="/checkout" class="btn btn-success mt-2">Proceed to Checkout</a>
+</div>
+
+<%- include('partials/footer') %>
