@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoleStyle - Just Do It</title>
+    <link rel="stylesheet" href="style.css">
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+           
+
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <a href="#" class="logo" onclick="showSection('home')">SoleStyle</a>
+            
+            <div class="search-container">
+                <div class="search-icon">🔍</div>
+                <input type="text" class="search-input" placeholder="Search for shoes..." onkeyup="handleSearch(event)">
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('products')">Products</a></li>
+                <li><a href="#" onclick="showSection('about')">About</a></li>
+                <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <div id="authButtons">
+                    <a href="#" class="btn btn-outline" onclick="showLogin()">Login</a>
+                    <a href="#" class="btn btn-primary" onclick="showSignup()">Join Us</a>
+                </div>
+                <div id="userProfile" class="user-profile hidden">
+                    <button class="btn btn-outline" onclick="toggleProfileDropdown()">
+                        <span id="userName">User</span> ▼
+                    </button>
+                    <div id="profileDropdown" class="profile-dropdown">
+                        <p><strong id="userEmail">user@example.com</strong></p>
+                        <button class="btn btn-outline" style="width: 100%; margin-top: 1rem;" onclick="logout()">Sign Out</button>
+                    </div>
+                </div>
+                <div class="cart-icon" onclick="toggleCart()">
+                    🛒
+                    <span id="cartCount" class="cart-count">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Login Form -->
+<div class="auth-form-container" id="loginForm">
+  <h2>Login</h2>
+  <input type="email" id="loginEmail" placeholder="Enter Gmail" />
+  <input type="password" id="loginPassword" placeholder="Enter Password" />
+  <button onclick="login()">Login</button>
+</div>
+
+<!-- Add Logout button where needed -->
+<button id="logoutBtn" onclick="logout()" style="display:none;">Logout</button>
+
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Home Section -->
+        <section id="homeSection">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Just Do It</h1>
+                    <p>Discover performance and style that moves you forward</p>
+                    <div class="hero-cta">
+                        <button class="btn btn-primary" onclick="showSection('products')" style="padding: 1rem 2rem; font-size: 1.1rem;">Shop Now</button>
+                        <button class="btn btn-outline" onclick="showSection('about')" style="padding: 1rem 2rem; font-size: 1.1rem; color: white; border-color: white;">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="products-section">
+                <h2 class="section-title">Featured Collection</h2>
+                <p class="section-subtitle">Handpicked favorites for every athlete</p>
+                <div class="products-grid" id="featuredProducts">
+                    <!-- Featured products will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="productsSection" class="hidden">
+            <div class="products-section">
+                <h2 class="section-title">All Products</h2>
+                <p class="section-subtitle">Find your perfect fit from our complete collection</p>
+                
+                <!-- Filter Buttons -->
+                <div class="filters">
+                    <button class="filter-btn active" onclick="filterProducts('all')">All Shoes</button>
+                    <button class="filter-btn" onclick="filterProducts('running')">Running</button>
+                    <button class="filter-btn" onclick="filterProducts('basketball')">Basketball</button>
+                    <button class="filter-btn" onclick="filterProducts('lifestyle')">Lifestyle</button>
+                    <button class="filter-btn" onclick="filterProducts('training')">Training</button>
+                    <button class="filter-btn" onclick="filterProducts('football')">Football</button>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="allProducts">
+                    <!-- All products will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="aboutSection" class="hidden">
+            <div class="products-section">
+                <h2 class="section-title">About SoleStyle</h2>
+                <div class="content-section">
+                    <p>Born from a passion for athletic excellence and timeless style, SoleStyle represents the pinnacle of footwear innovation. We believe that every step should be a statement of purpose, performance, and personal expression.</p>
+                    <br>
+                    <p>Our curated collection features cutting-edge technology, premium materials, and designs that transcend the boundaries between sport and street. From professional athletes to everyday champions, we empower everyone to push their limits and define their own path to greatness.</p>
+                    <br>
+                    <p><strong>Just Do It</strong> - because greatness is not just about winning; it's about showing up, every single day.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contactSection" class="hidden">
+            <div class="products-section">
+                <h2 class="section-title">Get In Touch with us</h2>
+                <div class="content-section">
+                    <div class="contact-card">
+                        <h3>Contact Information</h3>
+                        <div class="contact-info">
+                            <p><strong>Email:</strong> thapasandesh345@gmail.com</p>
+                            <p><strong>Phone:</strong> 9819476643</p>
+                            <p><strong>Address:</strong> biratnagar-4 morang</p>
+                            <p><strong>Customer Service Hours:</strong></p>
+                            <p>Monday - Friday: 7:00 AM - 4:00 PM </p>
+                            <p>Saturday - Sunday: 7:30 AM - 4:00 PM </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Welcome Back</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required placeholder="Enter your password">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">
+                    Sign In
+                </button>
+            </form>
+            <p style="text-align: center; margin-top: 1.5rem; color: #666;">
+                New to SoleStyle? <a href="#" onclick="closeModal('loginModal'); showSignup();" style="color: #000; font-weight: 600;">Join us</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('signupModal')">&times;</span>
+            <h2>Join SoleStyle</h2>
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email Address</label>
+                    <input type="email" id="signupEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required placeholder="Create a password">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">
+                    Create Account
+                </button>
+            </form>
+            <p style="text-align: center; margin-top: 1.5rem; color: #666;">
+                Already a member? <a href="#" onclick="closeModal('signupModal'); showLogin();" style="color: #000; font-weight: 600;">Sign in</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Bag</h3>
+            <span class="close-modal" onclick="toggleCart()" style="cursor: pointer; font-size: 1.5rem;">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div style="text-align: center; padding: 3rem 1rem; color: #666;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">🛒</div>
+                <p>Your bag is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                Total: $<span id="cartTotal">0.00</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+    <script src="script.js" defer></script>
+   
